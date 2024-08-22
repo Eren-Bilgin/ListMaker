@@ -15,22 +15,21 @@ import com.yourcompany.listmaker.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun ListMakerTopAppBar(title: String, showBackButton: Boolean, onBackPressed: () -> Unit) {
-    TopAppBar(
-        title = {
-            Text(text = title)
-        },
-        colors = TopAppBarDefaults.topAppBarColors(
-            containerColor = MaterialTheme.colorScheme.primaryContainer
-        ), navigationIcon = {
-            if (showBackButton) {
-                IconButton(onClick = onBackPressed) {
-                    Icon(
-                        imageVector = Icons.Default.ArrowBack,
-                        contentDescription = stringResource(id = R.string.cd_back_icon)
-                    )
-                }
+fun ListMakerTopAppBar(
+    title: String, showBackButton: Boolean, onBackPressed: () -> Unit
+) {
+    TopAppBar(title = {
+        Text(text = title)
+    }, colors = TopAppBarDefaults.topAppBarColors(
+        containerColor = MaterialTheme.colorScheme.primaryContainer
+    ), navigationIcon = {
+        if (showBackButton) {
+            IconButton(onClick = onBackPressed) {
+                Icon(
+                    imageVector = Icons.Default.ArrowBack,
+                    contentDescription = stringResource(id = R.string.cd_back_icon)
+                )
             }
         }
-    )
+    })
 }

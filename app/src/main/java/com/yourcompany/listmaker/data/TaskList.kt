@@ -5,10 +5,6 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class TaskList(
-
-
     val name: String,
-    val tasks: List<String> = listOf()
-
-
+    var tasks: List<String> = listOf(),
 ) : Parcelable

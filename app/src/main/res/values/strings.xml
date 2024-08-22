@@ -8,7 +8,7 @@
     <string name="task_hint">Enter name</string>
     <string name="cd_list_icon">List Icon</string>
     <string name="text_no_tasks">No Task Yet</string>
-    <string name="text_no_todos">No todos task for this task yet</string>
+    <string name="text_no_todos">No to do task for this task yet</string>
     <string name="task_to_add">What is the task you want to add?</string>
     <string name="label_task_list">Task List</string>
 </resources>

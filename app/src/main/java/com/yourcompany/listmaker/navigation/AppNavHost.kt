@@ -13,27 +13,19 @@ import com.yourcompany.listmaker.views.TaskListScreen
 fun AppNavHost() {
     val navController = rememberNavController()
     NavHost(
-        navController = navController,
-        startDestination = Screens.TaskListScreen.route
+        navController = navController, startDestination = Screens.TaskListScreen.route
     ) {
         composable(Screens.TaskListScreen.route) {
             TaskListScreen(navigate = { taskListName ->
                 navController.navigate("${Screens.TaskDetailScreen.route}/$taskListName")
-            }
-            )
+            })
         }
         composable(
             route = "${Screens.TaskDetailScreen.route}/{taskListName}",
             arguments = listOf(navArgument("taskListName") { type = NavType.StringType })
         ) {
-            TaskDetailScreen(
-                taskName = it.arguments?.getString("taskListName"),
-                onBackPressed = { navController.popBackStack() }
-            )
+            TaskDetailScreen(taskName = it.arguments?.getString("taskListName"),
+                onBackPressed = { navController.popBackStack() })
         }
-
-
-
     }
-
 }

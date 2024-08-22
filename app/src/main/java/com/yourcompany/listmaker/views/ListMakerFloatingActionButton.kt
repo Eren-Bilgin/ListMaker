@@ -1,12 +1,9 @@
 package com.yourcompany.listmaker.views
 
-import android.graphics.drawable.Icon
-import android.icu.text.CaseMap.Title
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.OutlinedTextField
@@ -17,32 +14,22 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.tooling.preview.Preview
 import com.yourcompany.listmaker.R
-import com.yourcompany.listmaker.ui.theme.ListMakerTheme
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ListMakerFloatingActionButton(
-    title: String ,
-    inputHint: String,
-    onFabClick: (String) -> Unit
+    title: String, inputHint: String, onFabClick: (String) -> Unit
 ) {
     var showDialog by remember { mutableStateOf(false) }
     var taskName by remember { mutableStateOf("") }
-
-    FloatingActionButton(
-        onClick = {
-            showDialog = true
-        },
-        content = {
-            Icon(
-                imageVector = Icons.Default.Add,
-                contentDescription = stringResource(id = R.string.cd_add_icon)
-            )
-        }
-    )
-
+    FloatingActionButton(onClick = {
+        showDialog = true
+    }, content = {
+        Icon(
+            imageVector = Icons.Default.Add,
+            contentDescription = stringResource(id = R.string.cd_add_icon)
+        )
+    })
     if (showDialog) {
         AlertDialog(
             onDismissRequest = { showDialog = false },
@@ -56,16 +43,13 @@ fun ListMakerFloatingActionButton(
                 )
             },
             confirmButton = {
-                Button(
-                    onClick = {
-                        showDialog = false
-                        onFabClick(taskName)
-                        taskName = ""
-                    },
-                    content = {
-                        Text(text = stringResource(id = R.string.label_create))
-                    }
-                )
+                Button(onClick = {
+                    showDialog = false
+                    onFabClick(taskName)
+                    taskName = ""
+                }, content = {
+                    Text(text = stringResource(id = R.string.label_create))
+                })
             },
         )
     }
